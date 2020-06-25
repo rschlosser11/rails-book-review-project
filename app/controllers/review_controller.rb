@@ -1,0 +1,3 @@
+class ReivewController < ApplicationController
+
+end
