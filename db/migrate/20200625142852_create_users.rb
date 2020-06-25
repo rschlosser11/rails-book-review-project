@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :email
       t.string :password_digest
-      t.boolean :reviewer
+      t.boolean :reviewer, default: false
       t.text :bio
 
       t.timestamps
