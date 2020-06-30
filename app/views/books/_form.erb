@@ -1,0 +1,27 @@
+<%= form_for @book do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %><br>
+  <%= f.label :summary %><br>
+  <%= f.text_area :summary, class: "form-control" %><br>
+  <%= f.label :publish_date %>
+  <%= f.date_select :publish_date, class: "form-control" %><br>
+
+  <%= f.label "Select an existing author" %>
+  <%= f.collection_select :author_id, Author.all, :id, :name, prompt: true, class: "form-control" %><br>
+  <%= f.label "Or add a new one" %><br>
+  <%= f.fields_for :author, @author do |author_attributes| %>
+    <%= author_attributes.label "Author's Name" %>
+    <%= author_attributes.text_field :name, class: "form-control" %><br>
+    <%= author_attributes.label "Author's Bio" %><br>
+    <%= author_attributes.text_area :bio, class: "form-control" %><br>
+  <% end %>
+
+  <%= f.label "Select an existing genre" %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: true, class: "form-control" %><br>
+  <%= f.label "Or add a new one" %><br>
+  <%= f.fields_for :genre, @genre do |genre_attributes| %>
+    <%= genre_attributes.label "Genre" %>
+    <%= genre_attributes.text_field :name, class: "form-control" %><br>
+  <% end %>
+  <%= f.submit %>
+<% end %>
