@@ -4,10 +4,10 @@
   <%= f.label :summary %><br>
   <%= f.text_area :summary, class: "form-control" %><br>
   <%= f.label :publish_date %>
-  <%= f.date_select :publish_date, class: "form-control" %><br>
+  <%= f.date_field :publish_date, class: "form-control-sm" %><br>
 
   <%= f.label "Select an existing author" %>
-  <%= f.collection_select :author_id, Author.all, :id, :name, prompt: true, class: "form-control" %><br>
+  <%= f.collection_select :author_id, Author.all, :id, :name, {include_blank: true}, {class: "form-control-sm"} %><br>
   <%= f.label "Or add a new one" %><br>
   <%= f.fields_for :author, @author do |author_attributes| %>
     <%= author_attributes.label "Author's Name" %>
@@ -17,7 +17,7 @@
   <% end %>
 
   <%= f.label "Select an existing genre" %>
-  <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: true, class: "form-control" %><br>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: true}, {class: "form-control-sm"} %><br>
   <%= f.label "Or add a new one" %><br>
   <%= f.fields_for :genre, @genre do |genre_attributes| %>
     <%= genre_attributes.label "Genre" %>
