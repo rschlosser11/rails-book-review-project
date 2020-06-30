@@ -1,0 +1,36 @@
+.navbar {
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.3),0 1px 9px 0 rgba(0,0,0,0.3);
+}
+.brand {
+  float: left;
+  display: block;
+  padding: 10px 20px 10px;
+  margin-left: -20px;
+  font-size: 20px;
+  font-weight: 200;
+  color: #FFF;
+  text-shadow: 0 1px 0 #FFFFFF;
+}
+img.brand {
+  width: 9.5em;
+  padding-left: 0;
+  padding-right: 10px;
+  margin: 0px;
+}
+.navbar-text {
+  float: right;
+}
+.navbar-link {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0px 15px 0 0;
+  color: #1C1C1C;
+}
+.navbar-link:hover {
+  color: #FF6060;
+  border-bottom: 3px double #FF6060;
+  padding-bottom: 2px;
+  text-decoration: none;
+}
