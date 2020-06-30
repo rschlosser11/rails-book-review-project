@@ -1,0 +1,13 @@
+<%= form_with model: @user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :email %>
+  <%= f.email_field :email %><br>
+  <%= f.label :password %>
+  <%= f.password_field :password %><br>
+  <%= f.label "Are you a book reviewer?" %>
+  <%= f.check_box :reviewer, {}, true, false %><br>
+  <%= f.label "If you are a reviewer, please provide a brief bio of yourself" %><br>
+  <%= f.text_area :bio, size: "80%x10%"%><br>
+  <%= f.submit "Sign Up" %>
+<% end %>
