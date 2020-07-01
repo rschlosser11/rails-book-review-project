@@ -1,3 +1,14 @@
+<% if @book.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @book.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= form_for @book do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title, class: "form-control" %><br>
@@ -6,7 +17,7 @@
   <%= f.label :publish_date %>
   <%= f.date_field :publish_date, class: "form-control-sm" %><br>
 
-  <%= f.label "Select an existing author" %>
+  <%= f.label :author_id %>
   <%= f.collection_select :author_id, Author.all, :id, :name, {include_blank: true}, {class: "form-control-sm"} %><br>
   <%= f.label "Or add a new one" %><br>
   <%= f.fields_for :author, @author do |author_attributes| %>
@@ -16,7 +27,7 @@
     <%= author_attributes.text_area :bio, class: "form-control" %><br>
   <% end %>
 
-  <%= f.label "Select an existing genre" %>
+  <%= f.label :genre_id %>
   <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: true}, {class: "form-control-sm"} %><br>
   <%= f.label "Or add a new one" %><br>
   <%= f.fields_for :genre, @genre do |genre_attributes| %>
