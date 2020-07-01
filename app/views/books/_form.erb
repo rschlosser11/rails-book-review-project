@@ -14,8 +14,8 @@
   <%= f.text_field :title, class: "form-control" %><br>
   <%= f.label :summary %><br>
   <%= f.text_area :summary, class: "form-control" %><br>
-  <%= f.label :publish_date %>
-  <%= f.date_field :publish_date, class: "form-control-sm" %><br>
+  <%= f.label :publish_year %>
+  <%= f.number_field :publish_year, in: 0..Time.now.year, step: 1, class: "form-control-sm" %><br>
 
   <%= f.label :author_id %>
   <%= f.collection_select :author_id, Author.all, :id, :name, {include_blank: true}, {class: "form-control-sm"} %><br>

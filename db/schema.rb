@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_06_25_203854) do
     t.text "summary"
     t.integer "author_id"
     t.integer "genre_id"
-    t.date "publish_date"
+    t.integer "publish_year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
