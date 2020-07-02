@@ -34,5 +34,7 @@
     <%= genre_attributes.label "Genre" %>
     <%= genre_attributes.text_field :name, class: "form-control" %><br>
   <% end %>
+  <%= f.label :cover %>
+  <%= f.file_field :cover, class: "form-controll" %><br>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>

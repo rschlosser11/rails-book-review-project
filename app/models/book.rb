@@ -5,4 +5,5 @@ class Book < ApplicationRecord
   validates :title, :summary, :publish_year, :author, :genre, presence: true
   accepts_nested_attributes_for :genre
   accepts_nested_attributes_for :author
+  has_one_attached :cover
 end
