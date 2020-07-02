@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root "site#homepage"
   resources :users, only: [:new, :create, :show, :edit, :destroy]
   resources :books
+  resources :authors, only: [:index, :show]
 end
