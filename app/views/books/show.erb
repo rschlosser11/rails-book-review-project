@@ -1,1 +1,13 @@
-<h2><%= @book.title %></h2>
+<div class="row no-gutters book-info">
+  <div class="book-cover">
+    <%= image_tag(@book.cover, class: "img-fluid", alt: "book cover") %>
+  </div>
+
+  <div class="book-details">
+    <h6>BOOKS</h6>
+    <h1><%= @book.title %></h1>
+    <h4>By <%= @book.author.name %></h4>
+    <p style="text-align: center">Published in <%= @book.publish_year %></p>
+    <p><%= @book.summary %></p>
+  </div>
+</div>
