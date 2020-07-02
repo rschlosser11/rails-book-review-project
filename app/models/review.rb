@@ -7,5 +7,5 @@ class Review < ApplicationRecord
   validates :rating, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
   validates :blurb, presence: true, length: { maximum: 280 }
   validates :book, uniqueness: { scope: :user, message: "already wrote a review for this book"}
-
+  accepts_nested_attributes_for :book
 end
