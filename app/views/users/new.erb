@@ -6,6 +6,8 @@
     <% end %>
     </ul>
   </div>
+  <% else %>
+    <p>Are you already registered? <%= link_to "Login", login_path %></p>
 <% end %>
 
 <%= form_for @user do |f| %>
