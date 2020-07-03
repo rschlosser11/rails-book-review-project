@@ -1,0 +1,35 @@
+<h1>Books</h1>
+<div class="border">
+  <% @books.each do |book| %>
+    <div class="flex-container container-fluid">
+      <div class="article-list-left">
+        <% if book.cover.attachment %>
+          <%= link_to image_tag(book.cover, class: "article-img", alt: "book cover"), book_path(book) %>
+        <% else %>
+          <p>
+            pic
+            </p>
+        <% end %>
+      </div>
+      <div class="article-content">
+        <h4>
+          <%= link_to book.title, book_path(book) %>
+        </h4>
+        <p class="writer">
+          By <%= link_to book.author.name, author_path(book.author) %>
+        </p>
+        <p class="genre-links hidden-phone">
+          <%= book.genre.name %>
+        </p>
+
+        <p>
+          <%= book.summary %>
+        </p>
+        <div class="read-full">
+          <%= link_to "See Reviews", book_path(book) %>
+        </div>
+      </div>
+    </div>
+  <hr />
+  <% end %>
+</div>

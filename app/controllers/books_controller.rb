@@ -29,6 +29,10 @@ class BooksController < ApplicationController
     redirect_to book_path(@book)
   end
 
+  def index
+    @books = Book.all
+  end
+
   private
 
   def book_params
