@@ -1,2 +1,19 @@
-<h1><%= @review.title %></h1>
-<%= @review.content %>
+<div class="row no-gutters book-info">
+  <div class="book-cover">
+    <%= image_tag(@book.cover, class: "img-fluid", alt: "book cover") %>
+  </div>
+
+  <div class="book-details">
+    <h6>Book Reviews</h6>
+    <h1><%= @review.title %></h1>
+    <h4>By <%= @review.user.name %></h4>
+    <h6>A review of <em><%= link_to @book.title, book_path(@book) %></em> by <%= link_to @book.author.name, author_path(@book.author) %></h6>
+    <div class="rating">
+      <%= rating_image(@review.rating) %>
+    </div>
+    <p><%= @review.blurb %></p>
+  </div>
+</div>
+<div class="row no-gutters">
+  <%= @review.content %>
+</div>

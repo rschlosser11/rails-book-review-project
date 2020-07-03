@@ -1,20 +1,26 @@
 .book-info {
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 15px;
 }
 .book-details {
   max-width: 49%;
   margin-left: 20px;
   vertical-align: center;
 }
-.book-details > h6 {
+.book-details > h6:not(:last-of-type) {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
-  margin: 0px 15px 0 0;
+  margin: 0px 0 10px 0;
   color: #1C1C1C;
   text-align: center;
+}
+.book-details > h6 {
+  font-weight: 550;
+  text-align: center;
+  margin-top: 10px;
 }
 .book-details > h1 {
   font-style: italic;
@@ -25,4 +31,11 @@
 }
 .book-cover {
   max-width: 49%;
+}
+.rating {
+  text-align: center;
+  margin: 10px 0;
+}
+.rating > img {
+  width: 100px;
 }
