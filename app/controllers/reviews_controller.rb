@@ -21,6 +21,10 @@ class ReviewsController < ApplicationController
     @book = @review.book
   end
 
+  def index
+    @reviews = Review.all
+  end
+
   private
 
   def review_params

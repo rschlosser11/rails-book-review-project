@@ -399,7 +399,7 @@ hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #EFEFEF;
 }
 
 small,
@@ -6797,7 +6797,7 @@ button.bg-dark:focus {
 }
 
 .border {
-  border: 1px solid #dee2e6 !important;
+  border: 1px solid #1C1C1C !important;
 }
 
 .border-top {

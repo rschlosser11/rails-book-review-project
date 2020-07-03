@@ -1,3 +1,33 @@
 .field_with_errors > input, .field_with_errors > textarea {
   border-bottom: 2px solid red;
 }
+.flex-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  align-items:center;
+}
+.article-list-left {
+  min-width: 35%;
+  margin-right: 0;
+}
+.article-content {
+  max-width: 60%;
+}
+.article-img {
+  width: 70%;
+}
+.article-content > h4 {
+  font-style: italic;
+}
+a {
+  color: #1C1C1C;
+}
+a:hover {
+  color: #24a398;
+  text-decoration: underline;
+}
+.border {
+  padding: 15px;
+}

@@ -1,0 +1,29 @@
+<h1>Book Reviews</h1>
+<div class="border">
+  <% @reviews.each do |review| %>
+    <div class="flex-container container-fluid">
+      <div class="article-list-left">
+        <%= link_to image_tag(review.book.cover, class: "article-img", alt: "book cover" ), book_path(review.book) %>
+      </div>
+      <div class="article-content">
+        <h4>
+          <%= link_to review.title, review_path(review) %>
+        </h4>
+        <p class="writer">
+          Review by <%= review.user.name %>
+        </p>
+        <p class="genre-links hidden-phone">
+          <%= review.book.genre.name %>
+        </p>
+
+        <p>
+          <%= review.blurb %>
+        </p>
+        <div class="read-full">
+          <%= link_to "Read the Review", review_path(review) %>
+        </div>
+      </div>
+    </div>
+  <hr />
+  <% end %>
+</div>
