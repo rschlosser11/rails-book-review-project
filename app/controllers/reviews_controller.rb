@@ -31,6 +31,12 @@ class ReviewsController < ApplicationController
     @book_id = @review.book.id
   end
 
+  def update
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+    redirect_to review_path(@review)
+  end
+
   private
 
   def review_params
