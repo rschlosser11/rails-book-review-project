@@ -1,1 +1,11 @@
-<h1>Hi <%= @user.name %></h1>
+<div class="container">
+  <h1>Hi, <%= @user.name %></h1>
+  <%= button_to "Write a New Review", new_book_path, method: "get", class: "btn btn-primary" %>
+  <p></p>
+  <h4>Reviews You've Written</h4>
+  <ul>
+    <% @user.reviews_written.each do |review| %>
+      <li><span style="font-size: 1.2em"><%= link_to review.title, review_path(review) %></span> for <em><%= link_to review.book.title, book_path(review.book) %></em> by <%= link_to review.book.author.name, author_path(review.book.author) %> </li>
+    <% end %>
+  </ul>
+</div>

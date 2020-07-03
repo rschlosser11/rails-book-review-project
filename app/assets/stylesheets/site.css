@@ -31,3 +31,8 @@ a:hover {
 .border {
   padding: 15px;
 }
+.sidebar {
+  padding: 15px;
+  background-color: #EFEFEF;
+  max-width: 20%;
+}
