@@ -1,0 +1,16 @@
+.button_to {
+  display: inline-block;
+}
+.button_to:hover{
+  background-color: #EFEFEF;
+  border-radius: 3px;
+}
+.user-buttons > form:not(:last-of-type) {
+  border-right: 1px solid #24a398;
+}
+
+.user-buttons {
+  padding-bottom: 30px;
+  border-bottom: 3px solid #24a398;
+  margin-bottom: 30px;
+}
