@@ -2,7 +2,7 @@
   <h1>Hi, <%= @user.name %></h1>
   <h4>What would you like to do?</h4>
   <div class="user-buttons">
-    <%= button_to "Write a New Review", new_book_path, class: "btn user-page-btn" %>   <%= button_to "Logout", logout_path, method: "delete", class: "btn user-page-btn" %>
+    <%= button_to "Write a New Review", new_book_path, method: "get", class: "btn user-page-btn" %>   <%= button_to "Logout", logout_path, method: "delete", class: "btn user-page-btn" %>
   </div>
   <h4>Reviews You've Written</h4>
   <ul>
