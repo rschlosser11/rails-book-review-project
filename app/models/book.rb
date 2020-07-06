@@ -6,4 +6,10 @@ class Book < ApplicationRecord
   accepts_nested_attributes_for :genre, reject_if: :all_blank
   accepts_nested_attributes_for :author, reject_if: :all_blank
   has_one_attached :cover
+
+  def self.title_start_with(arr)
+    arr.map do |letter|
+      where("title LIKE ?", "#{letter}%")
+    end
+  end
 end
