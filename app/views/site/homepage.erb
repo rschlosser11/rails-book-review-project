@@ -1,8 +1,32 @@
 <div class="container-fluid">
+  <%= image_tag('homepage-hero.jpg', class: "homepage-hero", alt: "books") %>
   <h3>Discover your next great book!</h3>
-  <p>Bookmania is a tool for readers, highlighting the best new books across all genres.</p>
+  <p>Bookmania is a tool for readers, highlighting the best new books across all genres. Sign up or log in to write your own reviews.</p>
+  <hr>
   <h4>Latest Reviews</h4>
-  <p>
-    Some Reviews
-    </p>
+  <div class="homepage-reviews">
+    <% Review.first_ten.each do |review| %>
+      <div class="homepage-review-ind">
+        <%= link_to image_tag(review.book.cover, class: "article-img", alt: "book cover" ), review_path(review) %>
+        <div class="article-content">
+          <h4>
+            <%= link_to review.title, review_path(review) %>
+          </h4>
+          <p class="writer">
+            Review by <%= review.user.name %>
+          </p>
+          <p class="genre-links hidden-phone">
+            <%= review.book.genre.name %>
+          </p>
+
+          <p>
+            <%= review.blurb %>
+          </p>
+          <div class="read-full">
+            <%= link_to "Read the Review", review_path(review) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

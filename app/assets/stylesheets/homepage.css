@@ -1,0 +1,26 @@
+.homepage-reviews {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.homepage-reviews .article-img {
+  width: 100px;
+  float: left;
+  margin-right: 15px;
+}
+
+.homepage-review-ind {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #EFEFEF;
+  max-width: 49%;
+}
+
+.homepage-review-ind > .article-content {
+  max-width: 95%;
+}
+
+.homepage-hero {
+  width: 100%;
+  margin-bottom: 20px;
+}
