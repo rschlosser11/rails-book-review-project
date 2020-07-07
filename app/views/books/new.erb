@@ -1,6 +1,9 @@
-<h2>Choose an Existing Book</h2>
-
-
-
-<h2>Add a New Book</h2>
+<h2>Select or Add a Book</h2>
+<h5>See if the book you want to review is present</h5>
+<%= form_tag(books_path, method: :get) do %>
+  <%= select_tag(:search, options_for_select(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']), {class: "form-control-sm"}) %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+<br>
+<h5>If not add a new book</h5>
 <%= render partial: "form" %>

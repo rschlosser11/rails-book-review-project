@@ -12,9 +12,15 @@
         <% end %>
       </div>
       <div class="article-content">
+        <% if is_reviewer? %>
+         <%= form_tag(new_book_review_path(book_id: book.id), method: 'GET', class: 'review-btn') do %>
+           <%= submit_tag "Write a Review", class: "btn btn-primary" %>
+         <% end %>
+        <% end %>
         <h4>
           <%= link_to book.title, book_path(book) %>
         </h4>
+
         <p class="writer">
           By <%= link_to book.author.name, author_path(book.author) %>
         </p>

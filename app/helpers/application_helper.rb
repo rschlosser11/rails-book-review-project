@@ -14,4 +14,8 @@ module ApplicationHelper
       link_to "Sign Up/Log In", new_user_path, class: "navbar-link"
     end
   end
+
+  def is_reviewer?
+    current_user.reviewer
+  end
 end

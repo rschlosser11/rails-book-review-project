@@ -30,7 +30,11 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    if params[:search].present?
+      @books = Book.title_start_with(params[:search])
+    else
+      @books = Book.all
+    end
   end
 
   private
