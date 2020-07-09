@@ -4,6 +4,9 @@
   </div>
 
   <div class="book-details">
+    <div class="reviewer-options">
+      <%= edit_review(@review) %><%= delete_review(@review) %>
+    </div>
     <h6>Book Reviews</h6>
     <h1><%= @review.title %></h1>
     <h4>By <%= @review.user.name %></h4>

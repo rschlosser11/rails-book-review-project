@@ -26,4 +26,15 @@ module ReviewsHelper
   def display_created_at(model)
     model.created_at.strftime('%B %e, %Y')
   end
+
+  def delete_review(review)
+    if current_user.id == review.user_id
+      button_to "Delete Review", review_path(review), method: :delete, class: "btn"
+    end
+  end
+  def edit_review(review)
+    if current_user.id == review.user_id
+      button_to "Edit Review", edit_review_path(review), method: :get, class: "btn"
+    end
+  end
 end
