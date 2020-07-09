@@ -27,6 +27,7 @@ class ReviewsController < ApplicationController
   def show
     @review = Review.find(params[:id])
     @book = @review.book
+    @comment = @review.comments.build
   end
 
   def index

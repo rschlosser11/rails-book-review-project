@@ -17,3 +17,11 @@
 <div class="row no-gutters">
   <%= @review.content %>
 </div>
+<div class="comments-container">
+  <h3>Comments</h3>
+  <% if logged_in %>
+    <%= render 'comments/add_comment' %>
+  <% end %>
+
+  <%= render collection: @review.comments, partial: 'comments/show_comment', as: :comment %>
+</div>

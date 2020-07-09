@@ -1,0 +1,14 @@
+.comment {
+  border-top: 1px solid #24a398;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+.commentor {
+  margin-left: 10px;
+  font-size: .9em;
+}
+.comments-container {
+  margin-top: 20px;
+  border-top: 2px solid #EFEFEF;
+  padding-top: 20px;
+}

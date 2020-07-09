@@ -22,4 +22,8 @@ module ReviewsHelper
       image_tag ("no-stars.png"), class: "rating", alt: "rating"
     end
   end
+
+  def display_created_at(model)
+    model.created_at.strftime('%B %e, %Y')
+  end
 end

@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new]
   end
   resources :authors, only: [:index, :show]
-  resources :reviews
+  resources :reviews do
+    resources :comments, only: [:create, :index]
+  end
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

@@ -1,0 +1,3 @@
+<div class="comment">
+  <p><%= comment.content %><br><span class="commentor">By <%= comment.user.name if comment.user %> on <%= display_created_at(comment) if comment.created_at %></span></p>
+</div>

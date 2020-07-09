@@ -1,0 +1,6 @@
+<%= form_for [@review, @comment], action: review_comments_path(@review), action: :post do |f| %>
+  <%= f.text_area :content, class: "form-control" %><br>
+  <%= f.hidden_field :user_id, value: current_user.id  %>
+  <%= f.hidden_field :review_id, value: @review.id  %>
+  <%= f.submit "Add Comment", class: "btn btn-primary" %>
+<% end %>
