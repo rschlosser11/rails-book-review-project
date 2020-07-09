@@ -10,7 +10,12 @@
   <% if is_reviewer? %>
     <h4>Reviews You've Written</h4>
     <ul>
-      <% render collection: @user.reviews_written, partial: 'review_li', as: :review %>
+      <%= render collection: @user.reviews_written, partial: 'review_li', as: :review %>
     </ul>
   <% end %>
+
+  <h4>Reviews You've Commented On</h4>
+  <ul>
+    <%= render collection: @user.reviews, partial: 'review_li', as: :review %>
+  </ul>
 </div>
