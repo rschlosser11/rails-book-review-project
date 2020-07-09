@@ -17,6 +17,24 @@ class UsersController < ApplicationController
    @user = User.find(params[:id])
  end
 
+ def edit
+   if helpers.current_user.id == params[:id].to_i
+     @user = helpers.current_user
+   else
+     redirect_to user_path(params[:id]), flash: {warning: "You can only edit your own profile"}
+   end
+ end
+
+ def update
+   if helpers.current_user.id == params[:id].to_i
+     @user = helpers.current_user
+     @user.update(user_params)
+     redirect_to user_path(@user)
+   else
+     redirect_to user_path(params[:id]), flash: {warning: "You can only edit your own profile"}
+   end
+ end
+
  def destroy
    session.delete(:user_id)
    redirect_to root_path
