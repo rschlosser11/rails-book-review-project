@@ -12,6 +12,8 @@ class BooksController < ApplicationController
   def create
     if helpers.is_reviewer?
       @book = Book.new(book_params)
+      @author = @book.author || @book.build_author
+      @genre = @book.genre || @book.build_genre
       if @book.save
         redirect_to new_book_review_path(@book)
       else

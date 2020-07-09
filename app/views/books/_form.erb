@@ -7,18 +7,18 @@
   <%= f.number_field :publish_year, in: 0..Time.now.year, step: 1, class: "form-control-sm" %><span class="error-text"><%= form_errors(@book, :publish_year) %></span><br>
 
   <%= f.label :author_id %>
-  <%= f.collection_select :author_id, Author.all, :id, :name, {include_blank: true}, {class: "form-control-sm"} %><span class="error-text"><%= form_errors(@book, :author_id) %></span><br>
+  <%= f.collection_select :author_id, Author.all, :id, :name, {include_blank: true}, {class: "form-control-sm"} %><span class="error-text"><%= form_errors(@book, :author) %></span><br>
   <%= f.label "Or add a new one" %><br>
   <%= f.fields_for :author, @author do |author_attributes| %>
     <%= author_attributes.label "Author's Name" %>
     <%= author_attributes.text_field :name, class: "form-control" %><span class="error-text"><%= form_errors(@author, :name) %></span><br>
     <%= author_attributes.label "Author's Bio" %><br>
-    <%= author_attributes.text_area :bio, class: "form-control" %><span class="error-text"><%= form_errors(@author, :bio) %></span><br>
+    <%= author_attributes.text_area :bio, class: "form-control" %><span class="error-text"><%= form_errors(@author, :name) %></span><br>
   <% end %>
 
   <%= f.label :genre_id %>
-  <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: true}, {class: "form-control-sm"} %><br>
-  <%= f.label "Or add a new one" %><span class="error-text"><%= form_errors(@book, :genre_id) %></span><br>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: true}, {class: "form-control-sm"} %><span class="error-text"><%= form_errors(@book, :genre) %></span><br>
+  <%= f.label "Or add a new one" %><br>
   <%= f.fields_for :genre, @genre do |genre_attributes| %>
     <%= genre_attributes.label "Genre" %>
     <%= genre_attributes.text_field :name, class: "form-control" %><span class="error-text"><%= form_errors(@genre, :name) %></span><br>
