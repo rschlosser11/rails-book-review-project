@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  get '/auth/facebook/callback', to: "sessions#create"
+  get "/auth/facebook/callback", to: "sessions#create_from_omni"
 end
