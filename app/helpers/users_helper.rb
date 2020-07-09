@@ -13,6 +13,17 @@ module UsersHelper
 
   def become_reviewer(user)
     if !user.reviewer
+      button_to "Become Reviewer", edit_user_path(@user), method: :get, class: "btn user-page-btn"
+    end
+  end
+
+  def display_reviews(user)
+    if is_reviewer? && @user.reviews_written.any?
+      @user.reviews_written.each do |review|
+        yield review
+      end
+    else
+      ""
     end
   end
 end

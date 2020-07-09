@@ -1,13 +1,16 @@
 <div class="container">
   <h1>Hi, <%= @user.name %></h1>
+  <p>
+    <%= @user.bio %>
+    </p>
   <h4>What would you like to do?</h4>
   <div class="user-buttons">
-    <%= button_to "Write a New Review", new_book_path, method: "get", class: "btn user-page-btn" %>   <%= button_to "Logout", logout_path, method: "delete", class: "btn user-page-btn" %>
+    <%= button_to "Write a New Review", new_book_path, method: "get", class: "btn user-page-btn" %>   <%= become_reviewer(@user) %>   <%= button_to "Logout", logout_path, method: "delete", class: "btn user-page-btn" %>
   </div>
-  <h4>Reviews You've Written</h4>
-  <ul>
-    <% @user.reviews_written.each do |review| %>
-      <li><span style="font-size: 1.2em"><%= link_to review.title, review_path(review) %></span> for <em><%= link_to review.book.title, book_path(review.book) %></em> by <%= link_to review.book.author.name, author_path(review.book.author) %> </li>
-    <% end %>
-  </ul>
+  <% if is_reviewer? %>
+    <h4>Reviews You've Written</h4>
+    <ul>
+      <% render collection: @user.reviews_written, partial: 'review_li', as: :review %>
+    </ul>
+  <% end %>
 </div>

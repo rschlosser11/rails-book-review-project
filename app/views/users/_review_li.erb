@@ -1,0 +1,1 @@
+<li><span style="font-size: 1.2em"><%= link_to review.title, review_path(review) %></span> for <em><%= link_to review.book.title, book_path(review.book) %></em> by <%= link_to review.book.author.name, author_path(review.book.author) %> </li>

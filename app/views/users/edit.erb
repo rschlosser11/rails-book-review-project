@@ -1,13 +1,9 @@
 <h2>Edit Your Profile</h2>
 
 <%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, class: "form-control" %><span class="error-text"><%= form_errors(@user, :name) %></span><br>
-  <%= f.label :email %>
-  <%= f.email_field :email, class: "form-control" %><span class="error-text"><%= form_errors(@user, :email) %></span><br>
   <%= f.label "Are you a book reviewer?" %>
   <%= f.check_box :reviewer, { class: "form-check", style: "display: inline-block" }, true, false %><br>
-  <%= f.label "If you are a reviewer, please provide a brief bio of yourself" %><br>
+  <%= f.label "If you haven't already, please provide a brief bio of yourself" %><br>
   <%= f.text_area :bio, class: "form-control" %><span class="error-text"><%= form_errors(@user, :bio) %></span><br>
   <%= f.submit "Make Changes", class: "btn btn-primary" %>
 <% end %>
