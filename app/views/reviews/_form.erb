@@ -1,24 +1,14 @@
-<% if @review.errors.any? %>
-  <div id="error_explanation">
-    <ul>
-    <% @review.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <%= form_for @review do |f| %>
   <%= f.label "Select the book you're reviewing" %>
-  <%= f.collection_select :book_id, @books, :id, :title, book_exist(@book_id), {class: "form-control-sm"} %><br>
+  <%= f.collection_select :book_id, @books, :id, :title, book_exist(@book_id), {class: "form-control-sm"} %><span class="error-text"><%= form_errors(@review, :book_id) %></span><br>
   <%= f.label :title %>
-  <%= f.text_field :title, class: "form-control" %><br>
+  <%= f.text_field :title, class: "form-control" %><span class="error-text"><%= form_errors(@review, :title) %></span><br>
   <%= f.label "Rating out of 5: " %>
-  <%= f.number_field :rating, in: 0.0..5.0, step: 0.5, class: "form-control-sm" %><br>
+  <%= f.number_field :rating, in: 1..5, step: 1, class: "form-control-sm" %><span class="error-text"><%= form_errors(@review, :rating) %></span><br>
   <%= f.label :blurb %>
-  <%= f.text_area :blurb, class: "form-control" %><br>
+  <%= f.text_area :blurb, class: "form-control" %><span class="error-text"><%= form_errors(@review, :blurb) %></span><br>
   <%= f.label :content %>
-  <%= f.text_area :content, size: "15x60", class: "form-control" %><br>
+  <%= f.text_area :content, size: "15x60", class: "form-control" %><span class="error-text"><%= form_errors(@review, :content) %></span><br>
   <%= f.hidden_field :user_id, value: current_user.id %><br>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>

@@ -1,40 +1,29 @@
-<% if @book.errors.any? %>
-  <div id="error_explanation">
-    <ul>
-    <% @book.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
-
 <%= form_for @book do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title, class: "form-control" %><br>
+  <%= f.text_field :title, class: "form-control" %><span class="error-text"><%= form_errors(@book, :title) %></span><br>
   <%= f.label :summary %><br>
-  <%= f.text_area :summary, class: "form-control" %><br>
+  <%= f.text_area :summary, class: "form-control" %><span class="error-text"><%= form_errors(@book, :summary) %></span><br>
   <%= f.label :publish_year %>
-  <%= f.number_field :publish_year, in: 0..Time.now.year, step: 1, class: "form-control-sm" %><br>
+  <%= f.number_field :publish_year, in: 0..Time.now.year, step: 1, class: "form-control-sm" %><span class="error-text"><%= form_errors(@book, :publish_year) %></span><br>
 
   <%= f.label :author_id %>
-  <%= f.collection_select :author_id, Author.all, :id, :name, {include_blank: true}, {class: "form-control-sm"} %><br>
+  <%= f.collection_select :author_id, Author.all, :id, :name, {include_blank: true}, {class: "form-control-sm"} %><span class="error-text"><%= form_errors(@book, :author_id) %></span><br>
   <%= f.label "Or add a new one" %><br>
   <%= f.fields_for :author, @author do |author_attributes| %>
     <%= author_attributes.label "Author's Name" %>
-    <%= author_attributes.text_field :name, class: "form-control" %><br>
+    <%= author_attributes.text_field :name, class: "form-control" %><span class="error-text"><%= form_errors(@author, :name) %></span><br>
     <%= author_attributes.label "Author's Bio" %><br>
-    <%= author_attributes.text_area :bio, class: "form-control" %><br>
+    <%= author_attributes.text_area :bio, class: "form-control" %><span class="error-text"><%= form_errors(@author, :bio) %></span><br>
   <% end %>
 
   <%= f.label :genre_id %>
   <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: true}, {class: "form-control-sm"} %><br>
-  <%= f.label "Or add a new one" %><br>
+  <%= f.label "Or add a new one" %><span class="error-text"><%= form_errors(@book, :genre_id) %></span><br>
   <%= f.fields_for :genre, @genre do |genre_attributes| %>
     <%= genre_attributes.label "Genre" %>
-    <%= genre_attributes.text_field :name, class: "form-control" %><br>
+    <%= genre_attributes.text_field :name, class: "form-control" %><span class="error-text"><%= form_errors(@genre, :name) %></span><br>
   <% end %>
   <%= f.label :cover %>
-  <%= f.file_field :cover, class: "form-controll" %><br>
+  <%= f.file_field :cover, class: "form-controll" %><span class="error-text"><%= form_errors(@book, :cover) %></span><br>
   <%= f.submit "Continue to Review", class: "btn btn-primary" %>
 <% end %>

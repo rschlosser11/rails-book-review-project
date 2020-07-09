@@ -18,4 +18,10 @@ module ApplicationHelper
   def is_reviewer?
     current_user.reviewer
   end
+
+  def form_errors(model, field)
+    if model.errors[field].any?
+      "#{field.to_s.titlecase} #{model.errors[field].join(' and ')}"
+    end
+  end
 end
