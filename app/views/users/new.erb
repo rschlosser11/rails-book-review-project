@@ -9,17 +9,23 @@
   <% else %>
     <p>Are you already registered? <%= link_to "Login", login_path %></p>
 <% end %>
-
-<%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, class: "form-control" %><br>
-  <%= f.label :email %>
-  <%= f.email_field :email, class: "form-control" %><br>
-  <%= f.label :password %>
-  <%= f.password_field :password, class: "form-control" %><br>
-  <%= f.label "Are you a book reviewer?" %>
-  <%= f.check_box :reviewer, { class: "form-check", style: "display: inline-block" }, true, false %><br>
-  <%= f.label "If you are a reviewer, please provide a brief bio of yourself" %><br>
-  <%= f.text_area :bio, class: "form-control" %><br>
-  <%= f.submit "Sign Up", class: "btn btn-primary" %>
-<% end %>
+<div class="signup_login_container">
+  <div class="signup_login">
+    <%= form_for @user do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %><br>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control" %><br>
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %><br>
+      <%= f.label "Are you a book reviewer?" %>
+      <%= f.check_box :reviewer, { class: "form-check", style: "display: inline-block" }, true, false %><br>
+      <%= f.label "If you are a reviewer, please provide a brief bio of yourself" %><br>
+      <%= f.text_area :bio, class: "form-control" %><br>
+      <%= f.submit "Sign Up", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="omni">
+    <%= link_to "Sign Up or Login with Facebook", '/auth/facebook', class: 'omni-auth-link' %>
+  </div>
+</div>
