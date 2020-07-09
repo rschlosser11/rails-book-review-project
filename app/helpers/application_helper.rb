@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def current_user
-    @user = User.find(session[:user_id])
+    @user = User.find_by(id: session[:user_id])
   end
 
   def navbar_user_link
@@ -16,7 +16,11 @@ module ApplicationHelper
   end
 
   def is_reviewer?
-    current_user.reviewer
+    current_user.reviewer if current_user
+  end
+
+  def can_edit_review(review)
+    is_reviewer? && review.user_id == current_user.id
   end
 
   def form_errors(model, field)

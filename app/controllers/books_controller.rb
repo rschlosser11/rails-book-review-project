@@ -1,16 +1,24 @@
 class BooksController < ApplicationController
   def new
-    @book = Book.new
-    @author = @book.build_author
-    @genre = @book.build_genre
+    if helpers.is_reviewer?
+      @book = Book.new
+      @author = @book.build_author
+      @genre = @book.build_genre
+    else
+      redirect_to root_path, flash: {warning: "You must be a reviewer to add a book"}
+    end
   end
 
   def create
-    @book = Book.new(book_params)
-    if @book.save
-      redirect_to new_book_review_path(@book)
+    if helpers.is_reviewer?
+      @book = Book.new(book_params)
+      if @book.save
+        redirect_to new_book_review_path(@book)
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to root_path, flash: {warning: "You must be a reviewer to add a book"}
     end
   end
 
@@ -19,14 +27,24 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:id])
+    if helpers.is_reviewer?
+      @book = Book.find(params[:id])
+      @author = @book.author
+      @genre = @book.genre
+    else
+      redirect_to book_path(params[:id]), flash: {warning: "You must be a reviewer to edit a book"}
+    end
   end
 
   def update
-    @book = Book.find(params[:id])
-    @book.update(book_params)
-    @book.save
-    redirect_to book_path(@book)
+    if helpers.is_reviewer?
+      @book = Book.find(params[:id])
+      @book.update(book_params)
+      @book.save
+      redirect_to book_path(@book)
+    else
+      redirect_to book_path(params[:id]), flash: {warning: "You must be a reviewer to edit a book"}
+    end
   end
 
   def index
