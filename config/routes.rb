@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :books, only: [:new, :create, :show, :edit, :update, :index] do
     resources :reviews, only: [:new]
   end
-  resources :authors, only: [:index, :show]
+  resources :authors, only: [:index, :show] do
+    resources :books, only: [:show]
+  end
   resources :reviews do
     resources :comments, only: [:create]
   end

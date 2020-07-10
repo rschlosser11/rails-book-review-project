@@ -2,5 +2,5 @@
 <p><%= @author.bio %></p>
 <h3>Books</h3>
 <% @author.books.each do |book| %>
-  <h4><em><%= link_to book.title, book_path(book) %></em></h4>
+  <h4><em><%= link_to book.title, author_book_path(@author, book) %></em></h4>
 <% end %>
