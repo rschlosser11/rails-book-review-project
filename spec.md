@@ -14,14 +14,14 @@ Specs:
       comments has a content column
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
-    Review method recent - on homepage, book method title_start_with ie) localhost:3000/books?search=A&commit=Search
+    Review method recent and first ten - on homepage, book method title_start_with ie) /books?search=A&commit=Search
 - [x] Include signup
 - [x] Include login
 - [x] Include logout
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth)
       Facebook
-- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
-
+- [x] Include nested resource show or index (URL e.g. users/2/recipes)
+      authors/[:author_id]/books/[:book_id]
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
       books/[:book_id]/reviews/new
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)
