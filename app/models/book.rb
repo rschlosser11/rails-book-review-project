@@ -16,4 +16,16 @@ class Book < ApplicationRecord
   def same_author
     Book.find_by(title: self.title)
   end
+
+  def self.search(params)
+    authors = Author.where("name LIKE ?", "%#{params}%")
+    genres = Genre.where("name LIKE ?", "%#{params}%")
+    if !authors.empty?
+      @books = self.where(author_id: authors.ids)
+    elsif !genres.empty?
+      @books = self.where(genre_id: genres.ids)
+    else
+      @books = Book.where("title LIKE ?", "%#{params}%")
+    end
+  end
 end

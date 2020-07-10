@@ -52,6 +52,10 @@ class BooksController < ApplicationController
   def index
     if params[:search].present?
       @books = Book.title_start_with(params[:search])
+    elsif params[:q]
+      @books = Book.search(params[:q].first)
+      params.delete(:q)
+      redirect_to books_path, flash: {warning: "No books found with that search"} if @books.empty?
     else
       @books = Book.all
     end
