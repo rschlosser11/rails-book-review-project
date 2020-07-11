@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+This application is a place for people passionate about books to share their views, to see what other people are reading, and to discover their own next great read.
 
-* Ruby version
+## Setting Up
 
-* System dependencies
+First download or clone this repository.
 
-* Configuration
+Then run
+```
+bundle install
+```
 
-* Database creation
+Next, run
+```
+rails s
+```
 
-* Database initialization
+Then open up your local server in your favorite browser.
 
-* How to run the test suite
+## Contributor's Guide
 
-* Services (job queues, cache servers, search engines, etc.)
+Bug reports and pull requests are welcome on GitHub.
 
-* Deployment instructions
+## License
 
-* ...
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
